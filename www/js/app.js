@@ -24,3 +24,21 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.controller('signatureCtrl', function($scope){
+      var canvas = document.getElementById('signatureCanvas');
+     var signaturePad = new SignaturePad(canvas);
+  
+
+
+      $scope.clearCanvas = function (){
+         console.log('cleared')
+         signaturePad.clear();
+      }
+
+      $scope.saveCanvas = function(){
+         console.log('saved')
+         var sigImg = signaturePad.toDataURL();
+         $scope.signature =  sigImg;
+      }
+})
